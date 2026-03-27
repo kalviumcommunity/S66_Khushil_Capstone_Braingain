@@ -1,6 +1,26 @@
-import kc_MCQ from "../models/MCQ.js";
+import MCQ from "../models/MCQ.js";
 
-export const kc_getMCQs = async (kc_req, kc_res) => {
-  const kc_mcqs = await kc_MCQ.find();
-  kc_res.json(kc_mcqs);
+// ✅ GET all MCQs
+export const getMCQs = async (req, res) => {
+  try {
+    const mcqs = await MCQ.find();
+    res.json(mcqs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// ✅ POST add MCQ
+export const addMCQ = async (req, res) => {
+  try {
+    const newMCQ = new MCQ(req.body);
+    await newMCQ.save();
+
+    res.status(201).json({
+      message: "MCQ added successfully",
+      data: newMCQ
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };

@@ -1,8 +1,12 @@
-import { kc_getMCQs } from "../controllers/mcqController.js";
 import express from "express";
+import { getMCQs, addMCQ } from "../controllers/mcqController.js";
 
-const kc_router = express.Router();
+const router = express.Router();
 
-kc_router.get("/", kc_getMCQs);
+// GET
+router.get("/", getMCQs);
 
-export default kc_router;
+// POST
+router.post("/", addMCQ);
+
+export default router;
