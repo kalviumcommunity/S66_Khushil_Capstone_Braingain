@@ -1,5 +1,5 @@
 import express from "express";
-import { getMCQs, addMCQ } from "../controllers/mcqController.js";
+import { getMCQs, addMCQ, updateMCQ } from "../controllers/mcqController.js";
 
 const router = express.Router();
 
@@ -8,5 +8,8 @@ router.get("/", getMCQs);
 
 // POST
 router.post("/", addMCQ);
+
+// PUT
+router.put("/:id", updateMCQ);
 
 export default router;

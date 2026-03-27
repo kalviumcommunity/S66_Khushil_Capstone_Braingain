@@ -24,3 +24,21 @@ export const addMCQ = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// ✅ PUT update MCQ
+export const updateMCQ = async (req, res) => {
+  try {
+    const updatedMCQ = await MCQ.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.json({
+      message: "MCQ updated successfully",
+      data: updatedMCQ
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
