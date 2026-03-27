@@ -67,3 +67,7 @@ The Smart Coaching Tracker App is a mobile application built using Flutter and F
 ## 🎯 Goal
 
 To create a scalable and efficient system that helps coaching institutes manage students effectively.
+
+## RENDER
+## Live Server deployed
+https://s66-khushil-capstone-braingain.onrender.com

@@ -31,6 +31,8 @@ kc_app.use("/api/books", kc_bookRoutes);
 kc_app.use("/api/mcq", kc_mcqRoutes);
 
 // ✅ Server Start
-kc_app.listen(process.env.PORT, () => {
+kc_app.listen(process.env.PORT || 3000, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
+
+console.log("ENV:", process.env.KC_MONGO_URI);
