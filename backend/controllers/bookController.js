@@ -3,8 +3,12 @@ import Book from "../models/Book.js";
 // ✅ GET (all books)
 export const getBooks = async (req, res) => {
   try {
-    const books = await Book.find();
-    res.json(books);
+    const books = await kc_Book.find();
+
+    res.json({
+      message: "Books fetched successfully",
+      data: books
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
