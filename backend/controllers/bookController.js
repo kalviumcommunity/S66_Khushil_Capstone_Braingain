@@ -1,16 +1,20 @@
 import Book from "../models/Book.js";
 
-// ✅ GET all books
+// ✅ GET (all books)
 export const getBooks = async (req, res) => {
   try {
-    const books = await Book.find();
-    res.json(books);
+    const books = await kc_Book.find();
+
+    res.json({
+      message: "Books fetched successfully",
+      data: books
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// ✅ POST add new book
+// ✅ POST (add a new book)
 export const addBook = async (req, res) => {
   try {
     const newBook = new Book(req.body);
@@ -25,20 +29,19 @@ export const addBook = async (req, res) => {
   }
 };
 
-// ✅ PUT update book
+// ✅ PUT (update book)
 export const updateBook = async (req, res) => {
   try {
-    const updatedBook = await Book.findByIdAndUpdate(
+    // 🔥 DATABASE UPDATE OPERATION
+    const updatedBook = await kc_Book.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
     );
 
-    res.json({
-      message: "Book updated successfully",
-      data: updatedBook
-    });
+    res.json(updatedBook);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
