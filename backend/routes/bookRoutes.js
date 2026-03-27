@@ -1,8 +1,12 @@
-import { kc_getBooks } from "../controllers/bookController.js";
 import express from "express";
+import { getBooks, addBook } from "../controllers/bookController.js";
 
-const kc_router = express.Router();
+const router = express.Router();
 
-kc_router.get("/", kc_getBooks);
+// GET
+router.get("/", getBooks);
 
-export default kc_router;
+// POST
+router.post("/", addBook);
+
+export default router;
