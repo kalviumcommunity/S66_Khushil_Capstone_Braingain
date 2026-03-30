@@ -14,6 +14,13 @@ const kc_MCQSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    // 🔥 RELATIONSHIP
+    bookId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "kc_Book",
+      required: true,
+    },
   },
   {
     timestamps: true,
