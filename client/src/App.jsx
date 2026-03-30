@@ -1,8 +1,13 @@
+import Navbar from './components/NavBar';
+import BookList from './components/BookList';
+import MCQList from './components/MCQList';
+
 function App() {
   return (
     <div>
-      <h1>BrainGain Project</h1>
-      <p>Frontend Deployed Successfully 🚀</p>
+      <Navbar />
+      <BookList />
+      <MCQList />
     </div>
   );
 }
